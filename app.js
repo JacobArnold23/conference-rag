@@ -348,7 +348,7 @@ async function checkSearchReadiness() {
                 // CORS or network error → function not deployed
             }
         }
-        setSearchReady('semantic', semanticReady);
+        setSearchReady('semantic', false);
 
         // --- 1 generate-answer call (only if semantic pipeline is ready) ---
         if (!semanticReady) {
