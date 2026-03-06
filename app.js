@@ -337,7 +337,7 @@ async function checkSearchReadiness() {
         }
 
         // --- 1 embed-question call (only if DB has embeddings) ---
-        let semanticReady = true;
+        let semanticReady = false;
         if (hasEmbeddings) {
             try {
                 const { data, error: fnError } = await supabaseClient.functions.invoke('embed-question', {
@@ -348,7 +348,7 @@ async function checkSearchReadiness() {
                 // CORS or network error → function not deployed
             }
         }
-        setSearchReady('semantic', semanticReady);
+        setSearchReady('semantic', true);
 
         // --- 1 generate-answer call (only if semantic pipeline is ready) ---
         if (!semanticReady) {
