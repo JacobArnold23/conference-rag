@@ -337,7 +337,7 @@ async function checkSearchReadiness() {
         }
 
         // --- 1 embed-question call (only if DB has embeddings) ---
-        let semanticReady = false;
+        let semanticReady = true;
         if (hasEmbeddings) {
             try {
                 const { data, error: fnError } = await supabaseClient.functions.invoke('embed-question', {
